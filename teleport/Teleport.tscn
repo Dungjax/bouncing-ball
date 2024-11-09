@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://cl101hqq1lgwf"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jameb"]
+size = Vector2(32, 32)
+
+[node name="Teleport" type="CollisionShape2D"]
+shape = SubResource("RectangleShape2D_jameb")
+debug_color = Color(0.0470958, 0.525447, 1, 0.42)

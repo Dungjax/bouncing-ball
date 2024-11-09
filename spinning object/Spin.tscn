@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://x8neie5jp5di"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2qk01"]
+size = Vector2(352, 16)
+
+[node name="SpinningObject" type="CollisionShape2D"]
+shape = SubResource("RectangleShape2D_2qk01")
+debug_color = Color(0.302226, 0.597126, 0.548301, 0.42)

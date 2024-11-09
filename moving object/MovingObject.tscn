@@ -1,0 +1,29 @@
+[gd_scene load_steps=4 format=3 uid="uid://dpqc1r4o5yk0h"]
+
+[ext_resource type="Script" path="res://moving object/moving_object.gd" id="1_pr7lv"]
+
+[sub_resource type="Curve2D" id="Curve2D_g0p5l"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -1.06305, 1, 0, 0, 0, 0, -119.063, 0, 0, 0, 0, 0, -1.06305, 1)
+}
+point_count = 3
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ch47y"]
+size = Vector2(64, 64)
+
+[node name="MovingObject" type="Path2D"]
+curve = SubResource("Curve2D_g0p5l")
+script = ExtResource("1_pr7lv")
+speed = 0.5
+
+[node name="PathFollow2D" type="PathFollow2D" parent="."]
+position = Vector2(-1.06305, 1)
+rotates = false
+
+[node name="CharacterBody2D" type="StaticBody2D" parent="PathFollow2D"]
+collision_layer = 2
+collision_mask = 5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PathFollow2D/CharacterBody2D"]
+position = Vector2(0, -1)
+shape = SubResource("RectangleShape2D_ch47y")

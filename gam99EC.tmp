@@ -1,0 +1,505 @@
+[gd_scene load_steps=25 format=3 uid="uid://d3mguqh3kxh3x"]
+
+[ext_resource type="Texture2D" uid="uid://di6b5c8fo7y3i" path="res://assets/bg.png" id="1_u2g3d"]
+[ext_resource type="PackedScene" uid="uid://8rnm670g2ied" path="res://goal/Goal.tscn" id="2_7jnrp"]
+[ext_resource type="PackedScene" uid="uid://doarqj5p3rr5" path="res://player/Player.tscn" id="2_q3354"]
+[ext_resource type="PackedScene" uid="uid://2ibk1e2s36ln" path="res://music/Music.tscn" id="2_u5ogh"]
+[ext_resource type="PackedScene" uid="uid://x8neie5jp5di" path="res://spinning object/Spin.tscn" id="3_numil"]
+[ext_resource type="Script" path="res://goal/goal.gd" id="4_a5bhm"]
+[ext_resource type="PackedScene" uid="uid://b31mdikpk4usg" path="res://boost/Boost.tscn" id="5_ukc7n"]
+[ext_resource type="Script" path="res://boost/boost.gd" id="6_31ldo"]
+[ext_resource type="PackedScene" uid="uid://dpqc1r4o5yk0h" path="res://moving object/MovingObject.tscn" id="6_niy7n"]
+[ext_resource type="Script" path="res://spinning object/spin.gd" id="6_upa6k"]
+[ext_resource type="PackedScene" uid="uid://0hp0qa5grpo2" path="res://wall/Wall.tscn" id="7_twes5"]
+[ext_resource type="PackedScene" uid="uid://dpsr71b46w8pr" path="res://breakable/Breakable.tscn" id="8_e7fag"]
+[ext_resource type="Script" path="res://killer/killer.gd" id="9_g1vlp"]
+[ext_resource type="PackedScene" uid="uid://drl0csftjkfh2" path="res://killer/Killer.tscn" id="9_o0jst"]
+[ext_resource type="Script" path="res://teleport/teleport.gd" id="10_o1sl2"]
+[ext_resource type="PackedScene" uid="uid://cl101hqq1lgwf" path="res://teleport/Teleport.tscn" id="10_wtrix"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hexhd"]
+size = Vector2(16, 56)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_v4lc3"]
+size = Vector2(32, 680)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i42fp"]
+size = Vector2(32, 680)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gejnm"]
+size = Vector2(1184, 24)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jurr5"]
+size = Vector2(1184, 24)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fu24l"]
+size = Vector2(72, 64)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_koye8"]
+size = Vector2(80, 64)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3e7nt"]
+size = Vector2(16, 56)
+
+[node name="game" type="Node2D"]
+
+[node name="bg" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(680, 156)
+texture = ExtResource("1_u2g3d")
+
+[node name="players" type="Node2D" parent="."]
+
+[node name="Player" parent="players" instance=ExtResource("2_q3354")]
+position = Vector2(526, 598)
+
+[node name="Player2" parent="players" instance=ExtResource("2_q3354")]
+position = Vector2(526, 598)
+
+[node name="Player3" parent="players" instance=ExtResource("2_q3354")]
+position = Vector2(526, 598)
+
+[node name="Player4" parent="players" instance=ExtResource("2_q3354")]
+position = Vector2(526, 598)
+
+[node name="Player5" parent="players" instance=ExtResource("2_q3354")]
+position = Vector2(526, 598)
+
+[node name="Player6" parent="players" instance=ExtResource("2_q3354")]
+position = Vector2(526, 598)
+
+[node name="music" parent="." instance=ExtResource("2_u5ogh")]
+
+[node name="goals" type="Area2D" parent="."]
+position = Vector2(536, 32)
+scale = Vector2(1.84, 1)
+script = ExtResource("4_a5bhm")
+
+[node name="Goal" parent="goals" instance=ExtResource("2_7jnrp")]
+position = Vector2(0, -4)
+
+[node name="spins" type="CharacterBody2D" parent="."]
+script = ExtResource("6_upa6k")
+
+[node name="SpinningObject" parent="spins" instance=ExtResource("3_numil")]
+position = Vector2(544, 328)
+
+[node name="boosts" type="Area2D" parent="."]
+collision_layer = 2
+script = ExtResource("6_31ldo")
+
+[node name="Boost" parent="boosts" instance=ExtResource("5_ukc7n")]
+position = Vector2(128, 576)
+
+[node name="Boost2" parent="boosts" instance=ExtResource("5_ukc7n")]
+position = Vector2(1024, 576)
+
+[node name="movings" type="Node2D" parent="."]
+position = Vector2(136, 168)
+scale = Vector2(0.940678, 1)
+
+[node name="MovingObject" parent="movings" instance=ExtResource("6_niy7n")]
+position = Vector2(25.5135, 56)
+
+[node name="killers" type="Area2D" parent="."]
+script = ExtResource("9_g1vlp")
+
+[node name="Killer" parent="killers" instance=ExtResource("9_o0jst")]
+position = Vector2(400, 8)
+
+[node name="Killer2" parent="killers" instance=ExtResource("9_o0jst")]
+position = Vector2(680, 8)
+
+[node name="teleports" type="Area2D" parent="."]
+script = ExtResource("10_o1sl2")
+
+[node name="Teleport" parent="teleports" instance=ExtResource("10_wtrix")]
+position = Vector2(1024, 64)
+
+[node name="Teleport2" parent="teleports" instance=ExtResource("10_wtrix")]
+position = Vector2(128, 64)
+
+[node name="breakables" type="Node2D" parent="."]
+
+[node name="Breakable" parent="breakables" instance=ExtResource("8_e7fag")]
+position = Vector2(392, 624)
+
+[node name="Breakable2" parent="breakables" instance=ExtResource("8_e7fag")]
+position = Vector2(392, 608)
+
+[node name="Breakable3" parent="breakables" instance=ExtResource("8_e7fag")]
+position = Vector2(392, 592)
+
+[node name="Breakable4" parent="breakables" instance=ExtResource("8_e7fag")]
+position = Vector2(392, 576)
+
+[node name="Breakable5" parent="breakables" instance=ExtResource("8_e7fag")]
+position = Vector2(392, 560)
+
+[node name="Breakable6" parent="breakables" instance=ExtResource("8_e7fag")]
+position = Vector2(392, 544)
+
+[node name="Breakable51" parent="breakables" instance=ExtResource("8_e7fag")]
+position = Vector2(328, 624)
+
+[node name="Breakable52" parent="breakables" instance=ExtResource("8_e7fag")]
+position = Vector2(328, 608)
+
+[node name="Breakable53" parent="breakables" instance=ExtResource("8_e7fag")]
+position = Vector2(328, 592)
+
+[node name="Breakable54" parent="breakables" instance=ExtResource("8_e7fag")]
+position = Vector2(328, 576)
+
+[node name="Breakable55" parent="breakables" instance=ExtResource("8_e7fag")]
+position = Vector2(328, 560)
+
+[node name="Breakable56" parent="breakables" instance=ExtResource("8_e7fag")]
+position = Vector2(328, 544)
+
+[node name="Breakable63" parent="breakables" instance=ExtResource("8_e7fag")]
+position = Vector2(328, 528)
+
+[node name="Breakable57" parent="breakables" instance=ExtResource("8_e7fag")]
+position = Vector2(760, 624)
+
+[node name="Breakable58" parent="breakables" instance=ExtResource("8_e7fag")]
+position = Vector2(760, 608)
+
+[node name="Breakable59" parent="breakables" instance=ExtResource("8_e7fag")]
+position = Vector2(760, 592)
+
+[node name="Breakable60" parent="breakables" instance=ExtResource("8_e7fag")]
+position = Vector2(760, 576)
+
+[node name="Breakable61" parent="breakables" instance=ExtResource("8_e7fag")]
+position = Vector2(760, 560)
+
+[node name="Breakable62" parent="breakables" instance=ExtResource("8_e7fag")]
+position = Vector2(760, 544)
+
+[node name="Breakable64" parent="breakables" instance=ExtResource("8_e7fag")]
+position = Vector2(760, 528)
+
+[node name="Breakable7" parent="breakables" instance=ExtResource("8_e7fag")]
+position = Vector2(408, 544)
+
+[node name="Breakable8" parent="breakables" instance=ExtResource("8_e7fag")]
+position = Vector2(424, 544)
+
+[node name="Breakable9" parent="breakables" instance=ExtResource("8_e7fag")]
+position = Vector2(440, 544)
+
+[node name="Breakable10" parent="breakables" instance=ExtResource("8_e7fag")]
+position = Vector2(456, 544)
+
+[node name="Breakable11" parent="breakables" instance=ExtResource("8_e7fag")]
+position = Vector2(472, 544)
+
+[node name="Breakable12" parent="breakables" instance=ExtResource("8_e7fag")]
+position = Vector2(488, 544)
+
+[node name="Breakable13" parent="breakables" instance=ExtResource("8_e7fag")]
+position = Vector2(504, 544)
+
+[node name="Breakable14" parent="breakables" instance=ExtResource("8_e7fag")]
+position = Vector2(520, 544)
+
+[node name="Breakable15" parent="breakables" instance=ExtResource("8_e7fag")]
+position = Vector2(536, 544)
+
+[node name="Breakable16" parent="breakables" instance=ExtResource("8_e7fag")]
+position = Vector2(552, 544)
+
+[node name="Breakable17" parent="breakables" instance=ExtResource("8_e7fag")]
+position = Vector2(568, 544)
+
+[node name="Breakable18" parent="breakables" instance=ExtResource("8_e7fag")]
+position = Vector2(584, 544)
+
+[node name="Breakable19" parent="breakables" instance=ExtResource("8_e7fag")]
+position = Vector2(600, 544)
+
+[node name="Breakable20" parent="breakables" instance=ExtResource("8_e7fag")]
+position = Vector2(616, 544)
+
+[node name="Breakable21" parent="breakables" instance=ExtResource("8_e7fag")]
+position = Vector2(632, 544)
+
+[node name="Breakable22" parent="breakables" instance=ExtResource("8_e7fag")]
+position = Vector2(648, 544)
+
+[node name="Breakable23" parent="breakables" instance=ExtResource("8_e7fag")]
+position = Vector2(664, 544)
+
+[node name="Breakable24" parent="breakables" instance=ExtResource("8_e7fag")]
+position = Vector2(680, 544)
+
+[node name="Breakable25" parent="breakables" instance=ExtResource("8_e7fag")]
+position = Vector2(696, 544)
+
+[node name="Breakable31" parent="breakables" instance=ExtResource("8_e7fag")]
+position = Vector2(392, 512)
+
+[node name="Breakable68" parent="breakables" instance=ExtResource("8_e7fag")]
+position = Vector2(376, 512)
+
+[node name="Breakable32" parent="breakables" instance=ExtResource("8_e7fag")]
+position = Vector2(408, 512)
+
+[node name="Breakable33" parent="breakables" instance=ExtResource("8_e7fag")]
+position = Vector2(424, 512)
+
+[node name="Breakable65" parent="breakables" instance=ExtResource("8_e7fag")]
+position = Vector2(328, 512)
+
+[node name="Breakable66" parent="breakables" instance=ExtResource("8_e7fag")]
+position = Vector2(344, 512)
+
+[node name="Breakable67" parent="breakables" instance=ExtResource("8_e7fag")]
+position = Vector2(360, 512)
+
+[node name="Breakable34" parent="breakables" instance=ExtResource("8_e7fag")]
+position = Vector2(440, 512)
+
+[node name="Breakable35" parent="breakables" instance=ExtResource("8_e7fag")]
+position = Vector2(456, 512)
+
+[node name="Breakable36" parent="breakables" instance=ExtResource("8_e7fag")]
+position = Vector2(472, 512)
+
+[node name="Breakable37" parent="breakables" instance=ExtResource("8_e7fag")]
+position = Vector2(488, 512)
+
+[node name="Breakable38" parent="breakables" instance=ExtResource("8_e7fag")]
+position = Vector2(504, 512)
+
+[node name="Breakable39" parent="breakables" instance=ExtResource("8_e7fag")]
+position = Vector2(520, 512)
+
+[node name="Breakable40" parent="breakables" instance=ExtResource("8_e7fag")]
+position = Vector2(536, 512)
+
+[node name="Breakable41" parent="breakables" instance=ExtResource("8_e7fag")]
+position = Vector2(552, 512)
+
+[node name="Breakable42" parent="breakables" instance=ExtResource("8_e7fag")]
+position = Vector2(568, 512)
+
+[node name="Breakable43" parent="breakables" instance=ExtResource("8_e7fag")]
+position = Vector2(584, 512)
+
+[node name="Breakable44" parent="breakables" instance=ExtResource("8_e7fag")]
+position = Vector2(600, 512)
+
+[node name="Breakable45" parent="breakables" instance=ExtResource("8_e7fag")]
+position = Vector2(616, 512)
+
+[node name="Breakable46" parent="breakables" instance=ExtResource("8_e7fag")]
+position = Vector2(632, 512)
+
+[node name="Breakable47" parent="breakables" instance=ExtResource("8_e7fag")]
+position = Vector2(648, 512)
+
+[node name="Breakable48" parent="breakables" instance=ExtResource("8_e7fag")]
+position = Vector2(664, 512)
+
+[node name="Breakable49" parent="breakables" instance=ExtResource("8_e7fag")]
+position = Vector2(680, 512)
+
+[node name="Breakable50" parent="breakables" instance=ExtResource("8_e7fag")]
+position = Vector2(696, 512)
+
+[node name="Breakable69" parent="breakables" instance=ExtResource("8_e7fag")]
+position = Vector2(712, 512)
+
+[node name="Breakable70" parent="breakables" instance=ExtResource("8_e7fag")]
+position = Vector2(728, 512)
+
+[node name="Breakable71" parent="breakables" instance=ExtResource("8_e7fag")]
+position = Vector2(744, 512)
+
+[node name="Breakable72" parent="breakables" instance=ExtResource("8_e7fag")]
+position = Vector2(760, 512)
+
+[node name="Breakable73" parent="breakables" instance=ExtResource("8_e7fag")]
+position = Vector2(88, 408)
+
+[node name="Breakable74" parent="breakables" instance=ExtResource("8_e7fag")]
+position = Vector2(72, 408)
+
+[node name="Breakable75" parent="breakables" instance=ExtResource("8_e7fag")]
+position = Vector2(104, 408)
+
+[node name="Breakable76" parent="breakables" instance=ExtResource("8_e7fag")]
+position = Vector2(120, 408)
+
+[node name="Breakable77" parent="breakables" instance=ExtResource("8_e7fag")]
+position = Vector2(24, 408)
+
+[node name="Breakable78" parent="breakables" instance=ExtResource("8_e7fag")]
+position = Vector2(40, 408)
+
+[node name="Breakable79" parent="breakables" instance=ExtResource("8_e7fag")]
+position = Vector2(56, 408)
+
+[node name="Breakable80" parent="breakables" instance=ExtResource("8_e7fag")]
+position = Vector2(136, 408)
+
+[node name="Breakable81" parent="breakables" instance=ExtResource("8_e7fag")]
+position = Vector2(152, 408)
+
+[node name="Breakable82" parent="breakables" instance=ExtResource("8_e7fag")]
+position = Vector2(168, 408)
+
+[node name="Breakable83" parent="breakables" instance=ExtResource("8_e7fag")]
+position = Vector2(184, 408)
+
+[node name="Breakable84" parent="breakables" instance=ExtResource("8_e7fag")]
+position = Vector2(200, 408)
+
+[node name="Breakable85" parent="breakables" instance=ExtResource("8_e7fag")]
+position = Vector2(216, 408)
+
+[node name="Breakable86" parent="breakables" instance=ExtResource("8_e7fag")]
+position = Vector2(232, 408)
+
+[node name="Breakable87" parent="breakables" instance=ExtResource("8_e7fag")]
+position = Vector2(248, 408)
+
+[node name="Breakable88" parent="breakables" instance=ExtResource("8_e7fag")]
+position = Vector2(264, 408)
+
+[node name="Breakable89" parent="breakables" instance=ExtResource("8_e7fag")]
+position = Vector2(280, 408)
+
+[node name="Breakable90" parent="breakables" instance=ExtResource("8_e7fag")]
+position = Vector2(296, 408)
+
+[node name="Breakable91" parent="breakables" instance=ExtResource("8_e7fag")]
+position = Vector2(312, 408)
+
+[node name="Breakable120" parent="breakables" instance=ExtResource("8_e7fag")]
+position = Vector2(776, 408)
+
+[node name="Breakable121" parent="breakables" instance=ExtResource("8_e7fag")]
+position = Vector2(792, 408)
+
+[node name="Breakable122" parent="breakables" instance=ExtResource("8_e7fag")]
+position = Vector2(808, 408)
+
+[node name="Breakable123" parent="breakables" instance=ExtResource("8_e7fag")]
+position = Vector2(824, 408)
+
+[node name="Breakable124" parent="breakables" instance=ExtResource("8_e7fag")]
+position = Vector2(840, 408)
+
+[node name="Breakable125" parent="breakables" instance=ExtResource("8_e7fag")]
+position = Vector2(856, 408)
+
+[node name="Breakable126" parent="breakables" instance=ExtResource("8_e7fag")]
+position = Vector2(872, 408)
+
+[node name="Breakable127" parent="breakables" instance=ExtResource("8_e7fag")]
+position = Vector2(888, 408)
+
+[node name="Breakable128" parent="breakables" instance=ExtResource("8_e7fag")]
+position = Vector2(904, 408)
+
+[node name="Breakable129" parent="breakables" instance=ExtResource("8_e7fag")]
+position = Vector2(984, 408)
+
+[node name="Breakable130" parent="breakables" instance=ExtResource("8_e7fag")]
+position = Vector2(968, 408)
+
+[node name="Breakable131" parent="breakables" instance=ExtResource("8_e7fag")]
+position = Vector2(1000, 408)
+
+[node name="Breakable132" parent="breakables" instance=ExtResource("8_e7fag")]
+position = Vector2(1016, 408)
+
+[node name="Breakable133" parent="breakables" instance=ExtResource("8_e7fag")]
+position = Vector2(920, 408)
+
+[node name="Breakable134" parent="breakables" instance=ExtResource("8_e7fag")]
+position = Vector2(936, 408)
+
+[node name="Breakable135" parent="breakables" instance=ExtResource("8_e7fag")]
+position = Vector2(952, 408)
+
+[node name="Breakable136" parent="breakables" instance=ExtResource("8_e7fag")]
+position = Vector2(1032, 408)
+
+[node name="Breakable137" parent="breakables" instance=ExtResource("8_e7fag")]
+position = Vector2(1048, 408)
+
+[node name="Breakable138" parent="breakables" instance=ExtResource("8_e7fag")]
+position = Vector2(1064, 408)
+
+[node name="Breakable139" parent="breakables" instance=ExtResource("8_e7fag")]
+position = Vector2(1080, 408)
+
+[node name="Breakable140" parent="breakables" instance=ExtResource("8_e7fag")]
+position = Vector2(1096, 408)
+
+[node name="Breakable141" parent="breakables" instance=ExtResource("8_e7fag")]
+position = Vector2(1112, 408)
+
+[node name="Breakable142" parent="breakables" instance=ExtResource("8_e7fag")]
+position = Vector2(1128, 408)
+
+[node name="Breakable26" parent="breakables" instance=ExtResource("8_e7fag")]
+position = Vector2(696, 560)
+
+[node name="Breakable27" parent="breakables" instance=ExtResource("8_e7fag")]
+position = Vector2(696, 576)
+
+[node name="Breakable28" parent="breakables" instance=ExtResource("8_e7fag")]
+position = Vector2(696, 592)
+
+[node name="Breakable29" parent="breakables" instance=ExtResource("8_e7fag")]
+position = Vector2(696, 608)
+
+[node name="Breakable30" parent="breakables" instance=ExtResource("8_e7fag")]
+position = Vector2(696, 624)
+
+[node name="Walls" type="StaticBody2D" parent="."]
+collision_layer = 2
+collision_mask = 5
+
+[node name="WallShape8" parent="Walls" instance=ExtResource("7_twes5")]
+position = Vector2(632, 604)
+shape = SubResource("RectangleShape2D_hexhd")
+
+[node name="WallShape" parent="Walls" instance=ExtResource("7_twes5")]
+position = Vector2(0, 316)
+shape = SubResource("RectangleShape2D_v4lc3")
+
+[node name="WallShape2" parent="Walls" instance=ExtResource("7_twes5")]
+position = Vector2(1152, 316)
+shape = SubResource("RectangleShape2D_i42fp")
+
+[node name="WallShape3" parent="Walls" instance=ExtResource("7_twes5")]
+position = Vector2(576, 644)
+shape = SubResource("RectangleShape2D_gejnm")
+
+[node name="WallShape4" parent="Walls" instance=ExtResource("7_twes5")]
+position = Vector2(576, -12)
+shape = SubResource("RectangleShape2D_jurr5")
+
+[node name="WallShape5" parent="Walls" instance=ExtResource("7_twes5")]
+position = Vector2(444, 32)
+shape = SubResource("RectangleShape2D_fu24l")
+
+[node name="WallShape6" parent="Walls" instance=ExtResource("7_twes5")]
+position = Vector2(632, 32)
+shape = SubResource("RectangleShape2D_koye8")
+
+[node name="WallShape7" parent="Walls" instance=ExtResource("7_twes5")]
+position = Vector2(456, 604)
+shape = SubResource("RectangleShape2D_3e7nt")
+
+[connection signal="body_entered" from="goals" to="goals" method="_on_body_entered"]
+[connection signal="body_entered" from="boosts" to="boosts" method="_on_body_entered"]
+[connection signal="body_entered" from="killers" to="killers" method="_on_body_entered"]
+[connection signal="body_entered" from="teleports" to="teleports" method="_on_body_entered"]

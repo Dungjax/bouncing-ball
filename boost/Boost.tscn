@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://b31mdikpk4usg"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ce5yn"]
+size = Vector2(64, 64)
+
+[node name="Boost" type="CollisionShape2D"]
+shape = SubResource("RectangleShape2D_ce5yn")
+debug_color = Color(0.498039, 0.580392, 0.113725, 0.623529)

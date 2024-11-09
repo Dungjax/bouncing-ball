@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://dpsr71b46w8pr"]
+
+[ext_resource type="Texture2D" uid="uid://b3nwd5rfk3x0h" path="res://assets/brick.png" id="1_htd2f"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ea4so"]
+size = Vector2(16, 16)
+
+[node name="Breakable" type="CollisionShape2D"]
+shape = SubResource("RectangleShape2D_ea4so")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(5.89712e-07, 0)
+scale = Vector2(0.0772947, 0.0769231)
+texture = ExtResource("1_htd2f")

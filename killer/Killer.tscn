@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://drl0csftjkfh2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_x7abt"]
+size = Vector2(16, 16)
+
+[node name="Killer" type="CollisionShape2D"]
+shape = SubResource("RectangleShape2D_x7abt")
+debug_color = Color(0.938597, 1.23215e-05, 0.623009, 0.42)

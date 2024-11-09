@@ -1,0 +1,203 @@
+[gd_scene load_steps=26 format=3 uid="uid://d3mguqh3kxh3x"]
+
+[ext_resource type="Texture2D" uid="uid://di6b5c8fo7y3i" path="res://assets/bg.png" id="1_u2g3d"]
+[ext_resource type="PackedScene" uid="uid://8rnm670g2ied" path="res://goal/Goal.tscn" id="2_7jnrp"]
+[ext_resource type="PackedScene" uid="uid://doarqj5p3rr5" path="res://player/Player.tscn" id="2_q3354"]
+[ext_resource type="PackedScene" uid="uid://2ibk1e2s36ln" path="res://music/Music.tscn" id="2_u5ogh"]
+[ext_resource type="PackedScene" uid="uid://x8neie5jp5di" path="res://spinning object/Spin.tscn" id="3_numil"]
+[ext_resource type="Script" path="res://goal/goal.gd" id="4_a5bhm"]
+[ext_resource type="PackedScene" uid="uid://b31mdikpk4usg" path="res://boost/Boost.tscn" id="5_ukc7n"]
+[ext_resource type="Script" path="res://boost/boost.gd" id="6_31ldo"]
+[ext_resource type="PackedScene" uid="uid://dpqc1r4o5yk0h" path="res://moving object/MovingObject.tscn" id="6_niy7n"]
+[ext_resource type="Script" path="res://spinning object/spin.gd" id="6_upa6k"]
+[ext_resource type="PackedScene" uid="uid://0hp0qa5grpo2" path="res://wall/Wall.tscn" id="7_twes5"]
+[ext_resource type="Script" path="res://killer/killer.gd" id="9_g1vlp"]
+[ext_resource type="PackedScene" uid="uid://drl0csftjkfh2" path="res://killer/Killer.tscn" id="9_o0jst"]
+[ext_resource type="Script" path="res://teleport/teleport.gd" id="10_o1sl2"]
+[ext_resource type="PackedScene" uid="uid://cl101hqq1lgwf" path="res://teleport/Teleport.tscn" id="10_wtrix"]
+[ext_resource type="Script" path="res://breakable/breakable.gd" id="15_kqnwd"]
+[ext_resource type="PackedScene" uid="uid://dpsr71b46w8pr" path="res://breakable/Breakable.tscn" id="16_0jr8k"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hexhd"]
+size = Vector2(16, 56)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_v4lc3"]
+size = Vector2(32, 680)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i42fp"]
+size = Vector2(32, 680)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gejnm"]
+size = Vector2(1184, 24)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jurr5"]
+size = Vector2(1184, 24)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fu24l"]
+size = Vector2(72, 64)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_koye8"]
+size = Vector2(80, 64)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3e7nt"]
+size = Vector2(16, 56)
+
+[node name="game" type="Node2D"]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position_smoothing_enabled = true
+
+[node name="bg" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(680, 156)
+texture = ExtResource("1_u2g3d")
+
+[node name="players" type="Node2D" parent="."]
+position = Vector2(-576, -320)
+
+[node name="Player" parent="players" instance=ExtResource("2_q3354")]
+position = Vector2(558, 598)
+linear_velocity = Vector2(218.426, 218.426)
+
+[node name="Player2" parent="players" instance=ExtResource("2_q3354")]
+position = Vector2(640, 616)
+linear_velocity = Vector2(218.426, 218.426)
+
+[node name="Player3" parent="players" instance=ExtResource("2_q3354")]
+position = Vector2(512, 616)
+linear_velocity = Vector2(218.426, 218.426)
+
+[node name="Player4" parent="players" instance=ExtResource("2_q3354")]
+position = Vector2(584, 616)
+linear_velocity = Vector2(218.426, 218.426)
+
+[node name="Player5" parent="players" instance=ExtResource("2_q3354")]
+position = Vector2(520, 592)
+linear_velocity = Vector2(218.426, 218.426)
+
+[node name="Player6" parent="players" instance=ExtResource("2_q3354")]
+position = Vector2(616, 600)
+linear_velocity = Vector2(218.426, 218.426)
+
+[node name="music" parent="." instance=ExtResource("2_u5ogh")]
+
+[node name="goals" type="Area2D" parent="."]
+position = Vector2(0, -288)
+scale = Vector2(1.84, 1)
+collision_layer = 2
+script = ExtResource("4_a5bhm")
+
+[node name="Goal" parent="goals" instance=ExtResource("2_7jnrp")]
+position = Vector2(0, -4)
+
+[node name="spins" type="StaticBody2D" parent="."]
+position = Vector2(-576, -320)
+collision_layer = 2
+collision_mask = 5
+script = ExtResource("6_upa6k")
+
+[node name="SpinningObject" parent="spins" instance=ExtResource("3_numil")]
+position = Vector2(576, 320)
+
+[node name="boosts" type="Area2D" parent="."]
+position = Vector2(-576, -320)
+collision_layer = 2
+script = ExtResource("6_31ldo")
+
+[node name="Boost" parent="boosts" instance=ExtResource("5_ukc7n")]
+position = Vector2(128, 576)
+
+[node name="Boost2" parent="boosts" instance=ExtResource("5_ukc7n")]
+position = Vector2(1024, 576)
+
+[node name="movings" type="Node2D" parent="."]
+position = Vector2(-440, -152)
+scale = Vector2(0.940678, 1)
+
+[node name="MovingObject" parent="movings" instance=ExtResource("6_niy7n")]
+position = Vector2(25.5135, 56)
+
+[node name="killers" type="Area2D" parent="."]
+position = Vector2(-576, -320)
+script = ExtResource("9_g1vlp")
+
+[node name="Killer" parent="killers" instance=ExtResource("9_o0jst")]
+position = Vector2(440, 8)
+
+[node name="Killer2" parent="killers" instance=ExtResource("9_o0jst")]
+position = Vector2(720, 8)
+
+[node name="teleports" type="Area2D" parent="."]
+position = Vector2(-576, -320)
+collision_layer = 2
+script = ExtResource("10_o1sl2")
+
+[node name="Teleport" parent="teleports" instance=ExtResource("10_wtrix")]
+position = Vector2(1024, 64)
+
+[node name="Teleport2" parent="teleports" instance=ExtResource("10_wtrix")]
+position = Vector2(128, 64)
+
+[node name="breakables" type="RigidBody2D" parent="."]
+position = Vector2(-576, -320)
+collision_layer = 2
+mass = 1000.0
+gravity_scale = 0.0
+contact_monitor = true
+max_contacts_reported = 1
+linear_damp = 100.0
+angular_damp = 100.0
+script = ExtResource("15_kqnwd")
+
+[node name="Breakable" parent="breakables" instance=ExtResource("16_0jr8k")]
+position = Vector2(560, 512)
+
+[node name="Breakable2" parent="breakables" instance=ExtResource("16_0jr8k")]
+position = Vector2(544, 512)
+
+[node name="Breakable3" parent="breakables" instance=ExtResource("16_0jr8k")]
+position = Vector2(576, 512)
+
+[node name="Walls" type="StaticBody2D" parent="."]
+position = Vector2(-576, -320)
+collision_layer = 2
+collision_mask = 5
+
+[node name="WallShape8" parent="Walls" instance=ExtResource("7_twes5")]
+position = Vector2(664, 604)
+shape = SubResource("RectangleShape2D_hexhd")
+
+[node name="WallShape" parent="Walls" instance=ExtResource("7_twes5")]
+position = Vector2(0, 316)
+shape = SubResource("RectangleShape2D_v4lc3")
+
+[node name="WallShape2" parent="Walls" instance=ExtResource("7_twes5")]
+position = Vector2(1152, 316)
+shape = SubResource("RectangleShape2D_i42fp")
+
+[node name="WallShape3" parent="Walls" instance=ExtResource("7_twes5")]
+position = Vector2(576, 644)
+shape = SubResource("RectangleShape2D_gejnm")
+
+[node name="WallShape4" parent="Walls" instance=ExtResource("7_twes5")]
+position = Vector2(576, -12)
+shape = SubResource("RectangleShape2D_jurr5")
+
+[node name="WallShape5" parent="Walls" instance=ExtResource("7_twes5")]
+position = Vector2(484, 32)
+shape = SubResource("RectangleShape2D_fu24l")
+
+[node name="WallShape6" parent="Walls" instance=ExtResource("7_twes5")]
+position = Vector2(672, 32)
+shape = SubResource("RectangleShape2D_koye8")
+
+[node name="WallShape7" parent="Walls" instance=ExtResource("7_twes5")]
+position = Vector2(488, 604)
+shape = SubResource("RectangleShape2D_3e7nt")
+
+[connection signal="body_entered" from="goals" to="goals" method="_on_body_entered"]
+[connection signal="body_entered" from="boosts" to="boosts" method="_on_body_entered"]
+[connection signal="body_entered" from="killers" to="killers" method="_on_body_entered"]
+[connection signal="body_entered" from="teleports" to="teleports" method="_on_body_entered"]
+[connection signal="body_entered" from="breakables" to="breakables" method="_on_body_entered"]
+[connection signal="body_shape_entered" from="breakables" to="breakables" method="_on_body_shape_entered"]
