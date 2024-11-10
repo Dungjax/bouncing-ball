@@ -1,8 +1,9 @@
 extends Node2D
 
-@onready var midiPlayer : MidiPlayer = $MidiPlayer
+@onready var midiPlayer : MidiPlayer
 
 func _ready() -> void:
+	midiPlayer = $MidiPlayer
 	pass
 
 

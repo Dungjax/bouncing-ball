@@ -1,13 +1,12 @@
-[gd_scene load_steps=7 format=3 uid="uid://doarqj5p3rr5"]
+[gd_scene load_steps=7 format=3 uid="uid://dil80xpf4kokw"]
 
 [ext_resource type="Script" path="res://player/player.gd" id="1_iq5gb"]
-[ext_resource type="Texture2D" uid="uid://d33equr30s64f" path="res://assets/trump.png" id="2_ddkc8"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_3ryi6"]
 friction = 0.0
 bounce = 1.0
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_re0jg"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_6y4d7"]
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_fpa0e"]
 particle_flag_disable_z = true
@@ -23,17 +22,21 @@ scale_max = 3.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_t4wuv"]
 radius = 1.0
 
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_0ps55"]
+load_path = "res://.godot/imported/trump.png-e8d1ca7121916465c3711a46279a4bbb.ctex"
+
 [node name="Player" type="RigidBody2D"]
 collision_mask = 3
 physics_material_override = SubResource("PhysicsMaterial_3ryi6")
 gravity_scale = 0.0
+lock_rotation = true
 continuous_cd = 1
 contact_monitor = true
 max_contacts_reported = 1
 script = ExtResource("1_iq5gb")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CircleShape2D_re0jg")
+shape = SubResource("CircleShape2D_6y4d7")
 debug_color = Color(1, 1, 1, 0.882353)
 
 [node name="Timer" type="Timer" parent="."]
@@ -52,7 +55,7 @@ shape = SubResource("CircleShape2D_t4wuv")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.164179, 0.164179)
-texture = ExtResource("2_ddkc8")
+texture = SubResource("CompressedTexture2D_0ps55")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

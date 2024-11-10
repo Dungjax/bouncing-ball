@@ -7,11 +7,10 @@
 script = ExtResource("1_qist3")
 
 [node name="MidiPlayer" parent="." instance=ExtResource("1_iw03i")]
-file = "res://midis/megalovania.mid"
+file = "res://midis/AG.mid"
 playing = true
-play_speed = 2.0
 volume_db = 0.0
 loop = true
-soundfont = "res://soundfonts/198_TekPiano.sf2"
+soundfont = "res://soundfonts/Motif ES6 Concert Piano(12Mb).SF2"
 
 [connection signal="midi_event" from="MidiPlayer" to="." method="_on_midi_player_midi_event"]

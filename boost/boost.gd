@@ -12,10 +12,9 @@ func _process(delta: float) -> void:
 	pass
 
 func _on_body_entered(body: Player) -> void:
-	print(9)
 	if body is Player:
 		if body.currentState == "normal":
-			body.linear_velocity *= boostAmount
+			#body.linear_velocity = body.linear_velocity.normalized() * body.baseSpeed * boostAmount
 			
 			body.currentState = "boost"
 		body.timer.start(boostDuration)

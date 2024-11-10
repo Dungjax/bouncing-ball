@@ -13,23 +13,25 @@ var currentState : String = "normal"
 
 func _ready() -> void:
 	linear_velocity = Vector2(baseSpeed, baseSpeed)
-	basePos = position
+	basePos = global_position
 	pass
 
 func _physics_process(delta: float) -> void:
 	gpuParticles.rotation = linear_velocity.angle()
 	
 	if currentState == "normal":
+		pass
 		if linear_velocity.length() > baseSpeed:
 			linear_velocity *= 0.9
 		
 		if linear_velocity.length() < baseSpeed:
 			linear_velocity *= 1.1
-		
+	elif  currentState == "boost":
+		linear_velocity = linear_velocity.normalized() * baseSpeed * 2
 	pass
 
 func _on_body_entered(body: Node) -> void:
-	$"../../music".midiPlayer.playing = true
+	%music.midiPlayer.playing = true
 	pass
 
 
