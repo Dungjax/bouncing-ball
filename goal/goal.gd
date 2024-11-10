@@ -9,7 +9,7 @@ func _process(delta: float) -> void:
 func _on_body_entered(body: Player) -> void:
 	if body is Player:
 		body.linear_damp = 10
-		body.collision_mask = 2
+		body.collision_mask = 4
 		body.gpuParticles.emitting = false
 	pass
 
