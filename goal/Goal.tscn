@@ -1,8 +1,18 @@
-[gd_scene load_steps=2 format=3 uid="uid://8rnm670g2ied"]
+[gd_scene load_steps=3 format=3 uid="uid://8rnm670g2ied"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_4iwic"]
-size = Vector2(60.8696, 56)
+[ext_resource type="Script" path="res://goal/goal.gd" id="1_3wice"]
 
-[node name="Goal" type="CollisionShape2D"]
-shape = SubResource("RectangleShape2D_4iwic")
-debug_color = Color(0.514965, 0.561627, 0.696815, 0.670588)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_x3rxt"]
+size = Vector2(112, 56)
+
+[node name="Goal" type="Area2D"]
+collision_layer = 2
+collision_mask = 5
+script = ExtResource("1_3wice")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_x3rxt")
+debug_color = Color(0.56491, 0.527385, 0.507939, 0.42)
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

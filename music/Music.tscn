@@ -8,7 +8,6 @@ script = ExtResource("1_qist3")
 
 [node name="MidiPlayer" parent="." instance=ExtResource("1_iw03i")]
 file = "res://midis/AG.mid"
-playing = true
 volume_db = 0.0
 loop = true
 soundfont = "res://soundfonts/Motif ES6 Concert Piano(12Mb).SF2"

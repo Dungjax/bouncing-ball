@@ -17,6 +17,8 @@ func _ready() -> void:
 	pass
 
 func _physics_process(delta: float) -> void:
+	print(collision_layer)
+	print(collision_mask)
 	gpuParticles.rotation = linear_velocity.angle()
 	
 	if currentState == "normal":
@@ -26,18 +28,21 @@ func _physics_process(delta: float) -> void:
 		
 		if linear_velocity.length() < baseSpeed:
 			linear_velocity *= 1.1
-	elif  currentState == "boost":
+	elif currentState == "boost":
 		linear_velocity = linear_velocity.normalized() * baseSpeed * 2
 	pass
 
 func _on_body_entered(body: Node) -> void:
 	%music.midiPlayer.playing = true
+	
+	if body is Breakable:
+		body.queue_free()
 	pass
 
 
 func _on_timer_timeout() -> void:
 	currentState = "normal"
-	pass # Replace with function body.
+	pass
 
 
 func _on_crushed_area_body_entered(body: Node2D) -> void:
