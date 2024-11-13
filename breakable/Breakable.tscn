@@ -6,8 +6,12 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bt1tw"]
 size = Vector2(16, 16)
 
-[node name="Breakable" type="StaticBody2D"]
+[node name="Breakable" type="RigidBody2D"]
 collision_layer = 2
+mass = 1000.0
+gravity_scale = 0.0
+linear_damp = 100.0
+angular_damp = 100.0
 script = ExtResource("1_qirl3")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -17,3 +21,5 @@ texture = ExtResource("1_htd2f")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_bt1tw")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

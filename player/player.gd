@@ -12,7 +12,7 @@ class_name  Player
 var currentState : String = "normal"
 
 func _ready() -> void:
-	linear_velocity = Vector2(baseSpeed, baseSpeed)
+	linear_velocity = Vector2(baseSpeed, -baseSpeed)
 	basePos = global_position
 	pass
 
@@ -34,9 +34,6 @@ func _physics_process(delta: float) -> void:
 
 func _on_body_entered(body: Node) -> void:
 	%music.midiPlayer.playing = true
-	
-	if body is Breakable:
-		body.queue_free()
 	pass
 
 

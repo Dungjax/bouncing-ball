@@ -69,28 +69,7 @@ texture = ExtResource("1_u2g3d")
 position = Vector2(-576, -320)
 
 [node name="Player2" parent="players" instance=ExtResource("2_wxivi")]
-position = Vector2(552, 576)
-
-[node name="Player3" parent="players" instance=ExtResource("2_wxivi")]
-position = Vector2(552, 576)
-
-[node name="Player4" parent="players" instance=ExtResource("2_wxivi")]
-position = Vector2(552, 576)
-
-[node name="Player5" parent="players" instance=ExtResource("2_wxivi")]
-position = Vector2(552, 576)
-
-[node name="Player6" parent="players" instance=ExtResource("2_wxivi")]
-position = Vector2(552, 576)
-
-[node name="Player7" parent="players" instance=ExtResource("2_wxivi")]
-position = Vector2(552, 576)
-
-[node name="Player8" parent="players" instance=ExtResource("2_wxivi")]
-position = Vector2(552, 576)
-
-[node name="Player9" parent="players" instance=ExtResource("2_wxivi")]
-position = Vector2(552, 576)
+position = Vector2(496, 544)
 
 [node name="music" parent="." instance=ExtResource("2_u5ogh")]
 unique_name_in_owner = true
@@ -165,57 +144,7 @@ position = Vector2(-576, -320)
 
 [node name="Breakable" parent="breakables" instance=ExtResource("16_0jr8k")]
 position = Vector2(520, 520)
-
-[node name="Breakable2" parent="breakables" instance=ExtResource("16_0jr8k")]
-position = Vector2(536, 520)
-
-[node name="Breakable3" parent="breakables" instance=ExtResource("16_0jr8k")]
-position = Vector2(552, 520)
-
-[node name="Breakable4" parent="breakables" instance=ExtResource("16_0jr8k")]
-position = Vector2(568, 520)
-
-[node name="Breakable5" parent="breakables" instance=ExtResource("16_0jr8k")]
-position = Vector2(584, 520)
-
-[node name="Breakable6" parent="breakables" instance=ExtResource("16_0jr8k")]
-position = Vector2(600, 520)
-
-[node name="Breakable7" parent="breakables" instance=ExtResource("16_0jr8k")]
-position = Vector2(616, 520)
-
-[node name="Breakable8" parent="breakables" instance=ExtResource("16_0jr8k")]
-position = Vector2(632, 520)
-
-[node name="Breakable9" parent="breakables" instance=ExtResource("16_0jr8k")]
-position = Vector2(648, 520)
-
-[node name="Breakable10" parent="breakables" instance=ExtResource("16_0jr8k")]
-position = Vector2(664, 520)
-
-[node name="Breakable11" parent="breakables" instance=ExtResource("16_0jr8k")]
-position = Vector2(680, 520)
-
-[node name="Breakable12" parent="breakables" instance=ExtResource("16_0jr8k")]
-position = Vector2(696, 520)
-
-[node name="Breakable13" parent="breakables" instance=ExtResource("16_0jr8k")]
-position = Vector2(424, 520)
-
-[node name="Breakable14" parent="breakables" instance=ExtResource("16_0jr8k")]
-position = Vector2(440, 520)
-
-[node name="Breakable15" parent="breakables" instance=ExtResource("16_0jr8k")]
-position = Vector2(456, 520)
-
-[node name="Breakable16" parent="breakables" instance=ExtResource("16_0jr8k")]
-position = Vector2(472, 520)
-
-[node name="Breakable17" parent="breakables" instance=ExtResource("16_0jr8k")]
-position = Vector2(488, 520)
-
-[node name="Breakable18" parent="breakables" instance=ExtResource("16_0jr8k")]
-position = Vector2(504, 520)
+health = 6
 
 [node name="Walls" type="StaticBody2D" parent="."]
 position = Vector2(-576, -320)
